@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
-// import axios from 'axios';
+
 import NewPost from '../NewPost/NewPost';
-import instance from '../../http';
+import instance, { BASE_URL } from '../../http';
 
 interface MainPostsProps {
   setIsLoading: (e: boolean) => void
@@ -11,7 +11,7 @@ function MainPosts({ setIsLoading }:MainPostsProps) {
   const [posts, setPosts] = useState<any>([]);
 
   useEffect(() => {
-    instance.get('https://localhost:44353/api/all-posts')
+    instance.get(`${BASE_URL}/all-posts`)
       .then((res: any) => {
         setPosts(res.data.sort((a: any, b: any) => b.idPost - a.idPost));
         setIsLoading(false);

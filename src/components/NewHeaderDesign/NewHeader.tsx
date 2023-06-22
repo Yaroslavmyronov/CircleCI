@@ -7,7 +7,7 @@ import MenuIcon from '@mui/icons-material/Menu';
 import CloseIcon from '@mui/icons-material/Close';
 import { useSelector } from 'react-redux';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
-import instance from '../../http';
+import instance, { BASE_URL } from '../../http';
 
 interface RootState {
   user: {
@@ -443,7 +443,7 @@ function NewHeader() {
   const inputRef = useRef<HTMLInputElement>(null);
 
   useEffect(() => {
-    instance.get('https://localhost:44353/api/all-posts')
+    instance.get(`${BASE_URL}/all-posts`)
       .then((res: any) => {
         setPosts(res.data.sort((a: any, b: any) => b.idPost - a.idPost));
       });

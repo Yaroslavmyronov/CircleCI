@@ -1,7 +1,7 @@
 import axios, { AxiosInstance, AxiosRequestConfig } from 'axios';
 import { AuthResponse } from '../models/responce/AuthResponse';
 
-export const BASE_URL = 'https://localhost:44353/api';
+export const BASE_URL = 'https://circleci.azurewebsites.net/api';
 
 const instance: AxiosInstance = axios.create({
   withCredentials: true,
